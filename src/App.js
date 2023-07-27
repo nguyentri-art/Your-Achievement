@@ -1,15 +1,17 @@
 import logo from './logo.svg';
 import './App.css';
-import myBody from './component/body/body';
-import myFoot from './component/foot/foot';
-import myHead from './component/head/head';
+import { BrowserRouter,Routes,Route } from 'react-router-dom';
 
-function App() {
+import Header from './component/Header';
+
+const App = function() {
   return (
-    <div className="App">
-
+    <div>
+      <Header />
+      
     </div>
   );
 }
+
 
 export default App;
