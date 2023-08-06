@@ -10,9 +10,11 @@ import SignIn from './components/SignIn';
 import { useState,useEffect } from 'react';
 import { GoogleLogin, GoogleLogout } from 'react-google-login';
 import { gapi } from 'gapi-script';
+import 'dotenv/config';
 
+const clientId = process.env.REACT_APP_GOOGLE_ID_KEY;
+console.log(process.env.REACT_APP_GOOGLE_ID_KEY);
 
-const clientId = XXXXXXXX
 const App = function() {
 
   useEffect(() => {
@@ -57,9 +59,11 @@ const App = function() {
   }
 
 
+
   return (
     <div>
       <h3>Login with Google -</h3>
+     
       {user ? <div>
         <div className="name">Welcome {user.name}!</div>
         <GoogleLogout

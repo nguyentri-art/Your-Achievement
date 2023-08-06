@@ -1,0 +1,11 @@
+* {
+    margin:0;
+    border-bottom: 1px;
+    background-color: aliceblue;
+}
+
+.container_Navbar {
+    display:flex;
+    contain: content;
+    margin: 20px;
+}
