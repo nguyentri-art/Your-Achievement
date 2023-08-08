@@ -15,6 +15,10 @@ const Navbar = () => {
         <div className="list_Navbar">
             <h3>YAchievement</h3>
             <h3>Challenge</h3>
+            <form class="search_button_container" action="">
+                <input type="text" placeholder='Search...' name="search" />
+                <button type="submit" className='search_Button'><a>Click</a></button>
+            </form>
         </div>
         <div className="child-2">
             <Login className="login_button"/>

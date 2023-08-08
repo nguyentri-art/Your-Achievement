@@ -24,7 +24,7 @@ h2 {
 }
 .child-2 {
     padding-top:40px;
-    padding-left:60%;
+    padding-left:40%;
     justify-content: center;
 }
 .list_Navbar {
@@ -44,4 +44,23 @@ h2 {
     font-size: 23px;
     transition:0.3s;
 
+}
+.search_button_container{
+    display:flex;
+    justify-content: center;
+    padding-top:10px;
+}
+
+.search_button_container input {
+    border-radius: 10px;
+    width:150px;
+    height: 40px;
+    margin-left:20px;
+}
+.search_button_container button {
+    height: 40px;
+    width: 60px;
+    border-radius: 10px;
+    display: inline-block;
+    text-align: center;
 }
