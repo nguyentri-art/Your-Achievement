@@ -1,11 +1,12 @@
-import React from 'react';
+import React,{ useState } from 'react';
 import './Main.css';
+import FormAchieve from './FormAchieve';
 
 const Main = () => {
     return (
-        <h3>
-            The Main;
-        </h3>
+        <div className="main_Page">
+            <FormAchieve />
+        </div>
     );
 }
 

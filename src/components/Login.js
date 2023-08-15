@@ -4,9 +4,9 @@ import { GoogleLogin, GoogleLogout } from 'react-google-login';
 import { gapi } from 'gapi-script';
 import { useState,useEffect } from 'react';
 import 'dotenv/config';
+import axios from 'axios';
 
 const clientId = process.env.REACT_APP_GOOGLE_ID_KEY;
-
 
 const Login = () => {
 
@@ -22,12 +22,34 @@ const Login = () => {
 
   const [loading,setLoading] = useState('Loading.....');
   const [user, setUser] = useState(null);
+  const [name,setName] = useState("");
+  const [email,setEmail] = useState("");
+
 
   const handleLoginSuccess = (response) => {
     console.log('Login Success ', response);
     setUser(response.profileObj);
     setLoading();
   }
+
+  // const handleUserName = async (e) => {
+  //   e.preventDefault();
+  //   let result = await fetch(
+  //     'http://localhost:5000/register',{
+  //       method: "post",
+  //       body: JSON.stringify({name,email}),
+  //       headers:{
+  //         'Content-Type': 'application/json'
+  //       }
+  //     });
+  //     result = await result.json();
+  //     console.warn(result);
+  //     if(result) {
+  //       alert("Data saved succesfully");
+  //       setEmail("");
+  //       setName("");
+  //     }
+  // }
 
   const handleLoginFailure = error => {
     console.log("Login Failure ", error);
@@ -50,18 +72,19 @@ const Login = () => {
   const handleAutoLoadFinished = () => {
     setLoading();
   }
+   
 
 return (
-    <div classNam="Login_Button">
-        {user ? <div>
-        <div className="name">Welcome {user.name}!</div>
-        <GoogleLogout
+    <div className="Login_Button">
+        {user ? <div className="google_LoginButton">
+        <img src={user.imageUrl} className="image_Avatar"/>
+        <div className="name"><h3>{user.name}</h3></div>
+        <GoogleLogout 
             clientId={clientId}
             onLogoutSuccess={handleLogoutSuccess}
             onFailure={handleLogoutFailure}
         />
-        <pre>{JSON.stringify(user, null, 2)}</pre>
-        </div> : 
+        </div > : 
         <GoogleLogin 
         clientId={clientId}
         buttonText={loading}
@@ -69,7 +92,8 @@ return (
         onFailure={handleLoginFailure}
         onRequest={handleRequest}
         onAutoLoadFinished={handleAutoLoadFinished}
-        isSignedIn={true} />
+        isSignedIn={true} 
+        />
         }
     </div>
     );
