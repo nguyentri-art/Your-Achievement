@@ -1,6 +1,5 @@
 const mongoose = require('mongoose');
 
-
 async function connectToDatabase() {
     try {
         await mongoose.connect('mongodb://localhost:27017/test',{
@@ -53,6 +52,7 @@ app.get("/", (req,res) => {
     // entering http://loacalhost:5000
     // If you see App is working means
     // backend working properly
+    
 })
 
 app.post("/register", async (req, resp) => {
@@ -72,7 +72,6 @@ app.post("/register", async (req, resp) => {
         } else {
             console.log("User already register");
         }
- 
     } catch (e) {
         resp.send("Something Went Wrong");
     }

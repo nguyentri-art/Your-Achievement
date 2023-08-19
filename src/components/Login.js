@@ -4,11 +4,10 @@ import { GoogleLogin, GoogleLogout } from 'react-google-login';
 import { gapi } from 'gapi-script';
 import { useState,useEffect } from 'react';
 import 'dotenv/config';
-import axios from 'axios';
 
 const clientId = process.env.REACT_APP_GOOGLE_ID_KEY;
 
-const Login = () => {
+const Login = (props) => {
 
   useEffect(() => {
     function start() {
@@ -22,35 +21,14 @@ const Login = () => {
 
   const [loading,setLoading] = useState('Loading.....');
   const [user, setUser] = useState(null);
-  const [name,setName] = useState("");
-  const [email,setEmail] = useState("");
-
 
   const handleLoginSuccess = (response) => {
     console.log('Login Success ', response);
     setUser(response.profileObj);
+    props.onData(response.profileObj);
     setLoading();
   }
-
-  // const handleUserName = async (e) => {
-  //   e.preventDefault();
-  //   let result = await fetch(
-  //     'http://localhost:5000/register',{
-  //       method: "post",
-  //       body: JSON.stringify({name,email}),
-  //       headers:{
-  //         'Content-Type': 'application/json'
-  //       }
-  //     });
-  //     result = await result.json();
-  //     console.warn(result);
-  //     if(result) {
-  //       alert("Data saved succesfully");
-  //       setEmail("");
-  //       setName("");
-  //     }
-  // }
-
+  
   const handleLoginFailure = error => {
     console.log("Login Failure ", error);
     setLoading();
@@ -73,7 +51,6 @@ const Login = () => {
     setLoading();
   }
    
-
 return (
     <div className="Login_Button">
         {user ? <div className="google_LoginButton">

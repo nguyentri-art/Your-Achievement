@@ -1,9 +1,16 @@
-import React from 'react';
+import React, { useState } from 'react';
 import './Navbar.css';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import Login from './Login';
 
 const Navbar = () => {
+
+    const [data,setData] = useState(null);
+
+    const handleData = (data) => {
+        console.log(data);
+        setData(data);
+    }
 
     const logo = require("../logo-YAchievement-removebg-preview.png").default;
 
@@ -21,7 +28,7 @@ const Navbar = () => {
             </form>
         </div>
         <div className="child-2">
-            <Login className="login_button"/>
+            <Login className="login_button" onData={handleData}/>
         </div>
     </div>
     );

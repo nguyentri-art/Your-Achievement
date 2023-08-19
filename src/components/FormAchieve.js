@@ -5,20 +5,7 @@ import axios from 'axios';
 
 const FormAchieve = () => {
 
-    const [data,setData] = useState([]);
-
-    useEffect(() => {
-        axios.get('/')
-        .then(response => {
-            setData(response);
-            console.log(response);
-        }).catch(error => {
-            console.log(error);
-        })
-    },[]);
-
     const [name,setName] = useState("");
-    const [email,setEmail] = useState("");
     const [achievement,setAchievement] = useState("");
     const [feel,setFeel] = useState("");
     const [tag,setTag] = useState("");
@@ -28,7 +15,7 @@ const FormAchieve = () => {
         let result = await fetch(
           'http://localhost:5000/register',{
             method: "post",
-            body: JSON.stringify({name,email,achievement,feel}),
+            body: JSON.stringify({name,achievement,feel,tag}),
             headers:{
               'Content-Type': 'application/json'
             }
@@ -37,19 +24,16 @@ const FormAchieve = () => {
           console.warn(result);
           if(result){
             alert("Data saved succesfully");
-            setEmail("");
             setName("");
             setAchievement("");
             setFeel("");
             setTag("");
           }
     }
-
     return (
         <div className="Form_Achieve">
         <form action="">
-            <input type="hidden" placeholder="name" value={name} onChange={(e) => setName(e.target.value)} />
-            <input type="hidden" placeholder="email" value={email} onChange={(e) => setEmail(e.target.value)} />
+            <input type="text" placeholder="Owner and coop owner" value={name} onChange={(e) => setName(e.target.value)} />
             <input type="achievement" placeholder="achievement" value={achievement} onChange={(e) => setAchievement(e.target.value)} />
             <input type="feel" placeholder="feeling" value={feel} onChange={(e) => setFeel(e.target.value)} />
             <input type="tag" placeholder="tag" value={tag}  onChange={(e) => setTag(e.target.value)} />
