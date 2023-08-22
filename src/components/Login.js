@@ -7,7 +7,7 @@ import 'dotenv/config';
 
 const clientId = process.env.REACT_APP_GOOGLE_ID_KEY;
 
-const Login = (props) => {
+const Login = () => {
 
   useEffect(() => {
     function start() {
@@ -25,7 +25,6 @@ const Login = (props) => {
   const handleLoginSuccess = (response) => {
     console.log('Login Success ', response);
     setUser(response.profileObj);
-    props.onData(response.profileObj);
     setLoading();
   }
   

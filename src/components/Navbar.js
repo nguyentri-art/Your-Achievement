@@ -7,11 +7,11 @@ const Navbar = () => {
 
     const [data,setData] = useState(null);
 
-    const handleData = (data) => {
-        console.log(data);
-        setData(data);
-    }
-
+    // const handleData = (data) => {
+    //     console.log(data);
+    //     setData(data);
+    // }
+    
     const logo = require("../logo-YAchievement-removebg-preview.png").default;
 
     return (
@@ -28,7 +28,7 @@ const Navbar = () => {
             </form>
         </div>
         <div className="child-2">
-            <Login className="login_button" onData={handleData}/>
+            <Login className="login_button" />
         </div>
     </div>
     );
