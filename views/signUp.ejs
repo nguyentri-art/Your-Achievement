@@ -1,0 +1,26 @@
+<%- include('./head.ejs') %>
+    </head>
+
+    <body>
+        <%- include('./navigation.ejs') %>
+        <div class="signUp_container">
+            <form method="POST">
+                <div class="form_signUp">
+                    <label for="name_signUp">Name</label>
+                    <input type="text" id="name_signUp" placeholder="Your name" required="true">
+                    <label for="email_signUp">Email</label>
+                    <input type="text" id="email_signUp" placeholder="email"  required="true">
+                    <label for="password_signUp">Password</label>
+                    <input type="password" id="password_signUp" placeholder="your Password"  required="true">
+                    <button type="submit">Enter</button>
+
+                    <% if(errorMessage) { %> 
+                        <div class="user-message user-message-already">
+                            <%= errorMessage %>
+                        </div>
+                     <% } %>
+
+                </div>
+            </form>
+        </div>
+        <%- include('./end.ejs') %>

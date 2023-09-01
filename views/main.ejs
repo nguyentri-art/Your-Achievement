@@ -4,9 +4,21 @@
     <body>
         <%- include('./navigation.ejs') %>
         <div class="container_Achieve">
-            <h1>Hello ! </h1>
-
+            <% for(let achi of prods) { %>
             <div class="container_achieve_form">
-               
+               <h4>Name of Achievement: <b>
+                    <%= achi.nameAchieve %>
+               </b>
+               </h4>
+               <h4>Tag og Achievement: <b>
+                    <%= achi.tagAchieve %>
+               </b>
+                </h4>
+                <h4>Feeling of this Achievement: <b>
+                    <%= achi.feelingAchieve %>
+                </b></h4>
             </div>
+            <% } %>
         </div>        
+
+    <%- include('./end.ejs') %>

@@ -1,0 +1,29 @@
+<%- include('./head.ejs') %>
+    </head>
+
+    <bod>
+        <%- include('./navigation') %>
+        <div class="signIn_container">
+            <p>Let's note you achievement and see this growing up</p>
+        <% if(errorMessage) { %>
+            <div class="user-message user-message-error">
+                <% =errorMessage %>
+            </div>
+        <% } %>
+            <form class="signIn_form" method="POST">
+                <div>
+                    <label for="email">Email</label>
+                    <input class="<%= validationErrors.find(e => e.param === 'email') ? 'invalid' : '' %>" 
+                        type="text" placeholder="Email" name="email" value="<%= oldInput.email %>"
+                        required="true">
+                    <label for="password">Password-</label>
+                    <input class="<%= validationErrors.find(e => e.param === 'password') ? 'invalid' : '' %>"
+                    value="<%= oldInput.password %>" name="password" type="password" required="true"
+                    placeholder="Password" minlength="5" maxlength="20">
+                </div>
+                <button type="submit" class="btn__signIn">Sign In</button>
+            </form>
+            <a href="/signUp">Don't have account yet? Sign Up here.</a>
+        </div>
+
+        <%- include('./end.ejs') %>
