@@ -1,0 +1,18 @@
+<%- include('./head.ejs') %>
+    </head>
+    
+    <body>
+        <div class="container__createAchievement">
+            <form class="form__createAchievement" method="POST" action="createAchievement">
+                <label id="nameAchieve" for="nameAchieve">Name your achievement</label>
+                <input type="text" name="nameAchieve">
+                <label id="tagAchieve" for="tagAchieve">Tag Achievement</label>
+                <input type="tagAchieve" name="tagAchieve">
+                <label id="feelingAchi" for="feelingAchi">Feeling Achievement</label>
+                <input type="feelingAchi" name="feelingAchi">
+                <button type="submit" class="submitCreater">Create</button>
+            </form>
+        </div>
+
+
+        <%- include('./end.ejs') %>

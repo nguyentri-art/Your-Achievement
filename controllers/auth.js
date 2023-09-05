@@ -1,4 +1,4 @@
-const { validationResult } = require('express-validator/check');
+const { validationResult } = require('express-validator');
 
 const userModel = require("../models/user");
 
@@ -99,34 +99,20 @@ exports.signUp = (req,res,next) => {
 //#endregion
 
 //#region post signUp path="/signUp"
-
 exports.postSignUp = (req,res,next) => {
-    const name = req.body.name;
-    const email = req.body.email;
-    const password = req.body.password;
+    const name = req.body.name_signUp;
+    const email = req.body.email_signUp;
+    const password = req.body.password_signUp;
 
-    userModel.find({email:email}).then((user) => {
-        if (!user) {
-            const newUser = new userModel({
-                name: name,
-                email:email,
-                password:password,
-                admin:false
-            });
-            res.redirect("/");
-            return newUser.save();
-        } else {
-            let errorMessage = "This email was have already";
-            res.render("signUp",{
-                pageTitle:"Sign Up",
-                path:"/signUp",
-                errorMessage:errorMessage
-            })
-        }   
-    }).catch(err =>{
-        console.log(err);
-        res.redirect("/");
+    const newUser = new userModel({
+        name: name,
+        email:email,
+        password:password,
+        admin:false
     });
+
+    res.redirect("/");
+    return newUser.save();
 }
 
 //#endregion    

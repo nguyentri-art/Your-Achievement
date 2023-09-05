@@ -2,4 +2,23 @@
     <div class="theLogo">
         <a href="/" class="logo"><span>.</span>Achievement </a>
     </div>
+    <ul class="navigation">
+        <% if(isAuthenticated){ %>
+            <li>
+                <a href="/createAchieve" class="<%= path === '/createAchieve' ? 'active' : '' %>">Create Achievement</a>
+            </li>
+            <%} %>
+        <% if(!isAuthenticated) { %>
+            <li>
+                <a href="/signIn" class="<%= path === '/signIn' ? 'active'  : '' %>">Sign In</a>
+            </li>
+            <% } else { %>
+                <!-- form action method post -->
+                <li>
+                    <form action="/signOut" method="POST">
+                        <button type="submit">Sign Out</button>
+                    </form>
+                </li>
+                <% } %>
+    </ul>
 </header>

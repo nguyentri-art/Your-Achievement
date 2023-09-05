@@ -37,3 +37,121 @@ header .navigation .theLogo .logo span {
 header .logo span {
     color: #ff0157;
 }
+
+header .navigation {
+    position: relative;
+    display: flex;
+}
+
+header .navigation li {
+    list-style: none;
+    margin-left: 30px;
+}
+header .navigation li a {
+    text-decoration: none;
+    color: rgb(2, 0, 0);
+    font-weight: 500;
+    opacity: 1;
+}
+
+header .navigation li a:active,
+header .navigation li a.active {
+    font-weight: 800;
+    opacity: 1;
+    font-size: 1.5rem;
+}
+
+header.sticky .navigation li a {
+    color: rgb(240, 237, 237);
+}
+
+header .navigation li a:hover {
+    color: #ff0157;
+}
+
+header .navigation .theLogo .logo span {
+    font-weight: 1000;
+}
+
+header .navigation li button {
+    border: none;
+    background-color: transparent;
+    font-size: 15px;
+    font-weight: 500;
+}
+
+header .navigation li button:hover {
+    color: #ff0157;
+    cursor: pointer;
+}
+
+/* SignIn */
+
+.signIn_container{
+    justify-content: center;
+    align-items: center;
+    padding:20%;
+}
+
+.signIn_form input {
+    width: 100%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    display: inline-block;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+}
+
+.signIn_form button {
+    width: 100%;
+    background-color: #4CAF50;
+    color: white;
+    padding: 14px 20px;
+    margin: 8px 0;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+/* SignIn */
+
+/* Sign Up */
+
+.signUp_container {
+    justify-content: center;
+    align-items: center;
+    padding:20%;
+}
+.signUp_container input {
+    width: 100%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    display: inline-block;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+}
+.signUp_container button {
+    width: 100%;
+    background-color: #4CAF50;
+    color: white;
+    padding: 14px 20px;
+    margin: 8px 0;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+/* Sign Up */
+/* footer */
+
+.footer {
+    position:absolute;
+    bottom: 0;
+    padding: 20px;
+    border-top: 1px solid rgb(224, 208, 208);
+    justify-content: center;
+    align-content: center;
+}
+/* footer */

@@ -38,7 +38,40 @@ exports.main = (req,res,next) => {
 }
 //#endregion
 
+//#region show get="/achievement" create new achievement.
+exports.achievement = (req,res,next) => {
+    const userId = req.session.user._id
+    let checkAdmin
+
+    userInfo.findById(userId).then(user => {
+        checkAdmin = user.admin     
+        res.render("achievement",{
+            pageTitle:"Create Achievement",
+            path:"/achievement",
+            admin: checkAdmin,
+            prods: user
+        });
+    })
+}
+//#endregion
+
 //#region show post="/achievement" create new achievement.
+exports.postAchievement = (req,res,next) => {
+    const nameAchieve = req.body.nameAchieve 
+    const tagAchieve = req.body.tagAchieve
+    const feelingAchieve = req.body.feelingAchi
+
+    const userId = req.session.user._id
+    let checkAdmin
+    const newAchievement = new achivement({
+        nameAchieve:nameAchieve,
+        tagAchieve:tagAchieve,
+        feelingAchieve:feelingAchieve,
+        postedBy:userId
+    });
+
+    return newAchievement.save();
+}
 
 //#endregion
 
