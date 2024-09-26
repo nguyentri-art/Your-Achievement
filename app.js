@@ -15,7 +15,7 @@ const userModel = require('./models/user');
 
 const achievementRoutes = require("./routes/routeLanding");
 
-const MONGODB_URI = "mongodb+srv://admin_charity:WwFcZnIJQFVDNJKq@yachievement.tyjrtys.mongodb.net/?retryWrites=true&w=majority"
+const MONGODB_URI = "XXXXXXXX"
 
 const app = express();
 
